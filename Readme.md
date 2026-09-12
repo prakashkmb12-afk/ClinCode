@@ -45,3 +45,36 @@ note / PDF upload
        v
 [coder-api] --> coder worklist
                (accept / reject / amend)
+
+## Milestones
+| Milestone | Focus | |-----------|-------| |
+ M1 | Architecture, infrastructure, schema and terminology foundation |
+| M2 | Clinical NER model training and concept normalisation |
+| M3 | Code suggestion service with confidence calibration |
+| M4 | RAG-backed coding copilot over guidelines and coding clinic advice |
+| M5 | Coder review console with evidence highlighting |
+| M6 | Deployment, audit reporting and drift monitoring |
+
+## Quick Start
+```bash cp .env.example .env make up          # start the full infrastructure stack
+make db-init     # apply schema (auto-applied on first boot)
+make seed        # load reference + demo data
+make verify      # M1 acceptance checks ```
+
+## Repository Layout
+- `libs/clincode_domain/`
+— pure code validation and coding rules- `services/`
+— one container per agent- `scripts/`
+— schema, terminology loader, dataset ETL, seeding, verification- `config/`
+— coding rule parameters and note section headers- `docs/adr/`
+— architecture decision records
+
+## Tech Stack
+- **PostgreSQL** — Encounters, notes, terminology and coder decisions
+- **Qdrant** — Vector index over note chunks and code descriptions (RAG from M4)
+- **MinIO** — Object store for original documents and OCR output
+- **Redis** — Task queue and extraction cache
+- **MLflow** — NER / classifier experiment tracking from M2
+
+## License
+MIT
