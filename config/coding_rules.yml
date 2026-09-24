@@ -1,0 +1,26 @@
+# Structural rules enforced by libs/clincode_domain/rules.py
+
+principal_diagnosis:
+  required: true
+  must_be_present_on_admission: true
+
+laterality:
+  required_prefixes: ['S', 'M', 'H'] # injury, musculoskeletal, eye/ear
+  unspecified_suffixes: ['9']
+  severity: warning
+
+excludes1:
+  severity: error
+  description: Two codes in an Excludes1 pair can never be reported together
+
+excludes2:
+  severity: info
+  description: Both may be reported if both conditions are documented
+
+sequencing:
+  manifestation_codes_never_principal: true
+  severity: error
+
+unspecified_code_ratio:
+  max_ratio: 0.25
+  severity: warning

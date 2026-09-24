@@ -1,0 +1,12 @@
+# Canonical section names and the surface forms seen in real notes
+
+chief_complaint: ['chief complaint', 'cc', 'presenting complaint']
+hpi: ['history of present illness', 'hpi']
+past_medical: ['past medical history', 'pmh', 'medical history']
+medications: ['medications', 'meds on admission', 'home medications']
+allergies: ['allergies', 'drug allergies']
+physical_exam: ['physical examination', 'physical exam', 'pe']
+assessment_plan: ['assessment and plan', 'a/p', 'impression and plan']
+hospital_course: ['hospital course', 'brief hospital course']
+discharge_dx: ['discharge diagnosis', 'discharge diagnoses', 'final diagnoses']
+procedures: ['procedures', 'operations performed']
